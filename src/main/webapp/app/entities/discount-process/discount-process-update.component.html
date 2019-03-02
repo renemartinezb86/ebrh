@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-discount-process-heading" jhiTranslate="brhApp.discountProcess.home.createOrEditLabel">Create or edit a Discount Process</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!discountProcess.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="discountProcess.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brhApp.discountProcess.csvFilePath" for="field_csvFilePath">Csv File Path</label>
+                    <input type="text" class="form-control" name="csvFilePath" id="field_csvFilePath"
+                        [(ngModel)]="discountProcess.csvFilePath" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brhApp.discountProcess.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" [(ngModel)]="createdDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="brhApp.discountProcess.sqlFilePath" for="field_sqlFilePath">Sql File Path</label>
+                    <input type="text" class="form-control" name="sqlFilePath" id="field_sqlFilePath"
+                        [(ngModel)]="discountProcess.sqlFilePath" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
