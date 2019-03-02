@@ -1,0 +1,8 @@
+entity DiscountProcess {
+	csvFilePath String,
+    createdDate Instant,
+    sqlFilePath String
+}
+
+paginate * with pager
+filter *
